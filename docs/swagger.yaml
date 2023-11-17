@@ -1,4 +1,82 @@
 definitions:
+  service.DevFuncAddRequest:
+    properties:
+      menu_identity:
+        description: 菜单唯一标识
+        type: string
+      name:
+        description: 功能名称
+        type: string
+      sort:
+        description: 排序
+        type: integer
+      uri:
+        description: 请求地址
+        type: string
+    type: object
+  service.DevFuncUpdateRequest:
+    properties:
+      identity:
+        description: 功能唯一标识，必填
+        type: string
+      menu_identity:
+        description: 菜单唯一标识
+        type: string
+      name:
+        description: 功能名称
+        type: string
+      sort:
+        description: 排序
+        type: integer
+      uri:
+        description: 请求地址
+        type: string
+    type: object
+  service.DevMenuAddRequest:
+    properties:
+      level:
+        description: 菜单等级，{0：目录，1：菜单，2：按钮}
+        type: integer
+      name:
+        description: 菜单名称
+        type: string
+      parent_identity:
+        description: 父级唯一标识，不填默认为顶级菜单
+        type: string
+      path:
+        description: 路径
+        type: string
+      sort:
+        description: 排序
+        type: integer
+      web_icon:
+        description: 网页图标
+        type: string
+    type: object
+  service.DevMenuUpdateRequest:
+    properties:
+      identity:
+        description: 菜单唯一标识，必填
+        type: string
+      level:
+        description: 菜单等级，{0：目录，1：菜单，2：按钮}
+        type: integer
+      name:
+        description: 菜单名称
+        type: string
+      parent_identity:
+        description: 父级唯一标识，不填默认为顶级菜单
+        type: string
+      path:
+        description: 路径
+        type: string
+      sort:
+        description: 排序
+        type: integer
+      web_icon:
+        description: 网页图标
+        type: string
+    type: object
   service.LoginPasswordRequest:
     properties:
       password:
@@ -84,6 +162,136 @@ definitions:
 info:
   contact: {}
 paths:
+  /dev/func/add:
+    post:
+      parameters:
+      - description: AccessToken
+        in: header
+        name: AccessToken
+        required: true
+        type: string
+      - description: 新增功能信息
+        in: body
+        name: FuncAddRequest
+        required: true
+        schema:
+          $ref: '#/definitions/service.DevFuncAddRequest'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 新增功能
+      tags:
+      - 鉴权接口-方法
+  /dev/func/delete:
+    delete:
+      parameters:
+      - description: AccessToken
+        in: header
+        name: AccessToken
+        required: true
+        type: string
+      - description: identity
+        in: query
+        name: identity
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除功能
+      tags:
+      - 鉴权接口-方法
+  /dev/func/update:
+    put:
+      parameters:
+      - description: AccessToken
+        in: header
+        name: AccessToken
+        required: true
+        type: string
+      - description: 修改功能信息
+        in: body
+        name: FuncUpdateRequest
+        required: true
+        schema:
+          $ref: '#/definitions/service.DevFuncUpdateRequest'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 修改功能
+      tags:
+      - 鉴权接口-方法
+  /dev/menu/add:
+    post:
+      parameters:
+      - description: AccessToken
+        in: header
+        name: AccessToken
+        required: true
+        type: string
+      - description: 新增菜单信息
+        in: body
+        name: MenuAddRequest
+        required: true
+        schema:
+          $ref: '#/definitions/service.DevMenuAddRequest'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 新增菜单
+      tags:
+      - 鉴权接口-方法
+  /dev/menu/delete:
+    delete:
+      parameters:
+      - description: AccessToken
+        in: header
+        name: AccessToken
+        required: true
+        type: string
+      - description: identity
+        in: query
+        name: identity
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 删除菜单
+      tags:
+      - 鉴权接口-方法
+  /dev/menu/update:
+    put:
+      parameters:
+      - description: AccessToken
+        in: header
+        name: AccessToken
+        required: true
+        type: string
+      - description: 修改菜单信息
+        in: body
+        name: MenuUpdateRequest
+        required: true
+        schema:
+          $ref: '#/definitions/service.DevMenuUpdateRequest'
+      responses:
+        "200":
+          description: '{"code":"200","data":""}'
+          schema:
+            type: string
+      summary: 修改菜单
+      tags:
+      - 鉴权接口-方法
   /functions:
     get:
       parameters:

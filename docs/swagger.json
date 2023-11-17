@@ -4,6 +4,206 @@
         "contact": {}
     },
     "paths": {
+        "/dev/func/add": {
+            "post": {
+                "tags": [
+                    "鉴权接口-方法"
+                ],
+                "summary": "新增功能",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AccessToken",
+                        "name": "AccessToken",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "新增功能信息",
+                        "name": "FuncAddRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.DevFuncAddRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dev/func/delete": {
+            "delete": {
+                "tags": [
+                    "鉴权接口-方法"
+                ],
+                "summary": "删除功能",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AccessToken",
+                        "name": "AccessToken",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "identity",
+                        "name": "identity",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dev/func/update": {
+            "put": {
+                "tags": [
+                    "鉴权接口-方法"
+                ],
+                "summary": "修改功能",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AccessToken",
+                        "name": "AccessToken",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "修改功能信息",
+                        "name": "FuncUpdateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.DevFuncUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dev/menu/add": {
+            "post": {
+                "tags": [
+                    "鉴权接口-方法"
+                ],
+                "summary": "新增菜单",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AccessToken",
+                        "name": "AccessToken",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "新增菜单信息",
+                        "name": "MenuAddRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.DevMenuAddRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dev/menu/delete": {
+            "delete": {
+                "tags": [
+                    "鉴权接口-方法"
+                ],
+                "summary": "删除菜单",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AccessToken",
+                        "name": "AccessToken",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "type": "string",
+                        "description": "identity",
+                        "name": "identity",
+                        "in": "query",
+                        "required": true
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
+        "/dev/menu/update": {
+            "put": {
+                "tags": [
+                    "鉴权接口-方法"
+                ],
+                "summary": "修改菜单",
+                "parameters": [
+                    {
+                        "type": "string",
+                        "description": "AccessToken",
+                        "name": "AccessToken",
+                        "in": "header",
+                        "required": true
+                    },
+                    {
+                        "description": "修改菜单信息",
+                        "name": "MenuUpdateRequest",
+                        "in": "body",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/service.DevMenuUpdateRequest"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "{\"code\":\"200\",\"data\":\"\"}",
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                }
+            }
+        },
         "/functions": {
             "get": {
                 "tags": [
@@ -544,6 +744,114 @@
         }
     },
     "definitions": {
+        "service.DevFuncAddRequest": {
+            "type": "object",
+            "properties": {
+                "menu_identity": {
+                    "description": "菜单唯一标识",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "功能名称",
+                    "type": "string"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer"
+                },
+                "uri": {
+                    "description": "请求地址",
+                    "type": "string"
+                }
+            }
+        },
+        "service.DevFuncUpdateRequest": {
+            "type": "object",
+            "properties": {
+                "identity": {
+                    "description": "功能唯一标识，必填",
+                    "type": "string"
+                },
+                "menu_identity": {
+                    "description": "菜单唯一标识",
+                    "type": "string"
+                },
+                "name": {
+                    "description": "功能名称",
+                    "type": "string"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer"
+                },
+                "uri": {
+                    "description": "请求地址",
+                    "type": "string"
+                }
+            }
+        },
+        "service.DevMenuAddRequest": {
+            "type": "object",
+            "properties": {
+                "level": {
+                    "description": "菜单等级，{0：目录，1：菜单，2：按钮}",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "parent_identity": {
+                    "description": "父级唯一标识，不填默认为顶级菜单",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "路径",
+                    "type": "string"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer"
+                },
+                "web_icon": {
+                    "description": "网页图标",
+                    "type": "string"
+                }
+            }
+        },
+        "service.DevMenuUpdateRequest": {
+            "type": "object",
+            "properties": {
+                "identity": {
+                    "description": "菜单唯一标识，必填",
+                    "type": "string"
+                },
+                "level": {
+                    "description": "菜单等级，{0：目录，1：菜单，2：按钮}",
+                    "type": "integer"
+                },
+                "name": {
+                    "description": "菜单名称",
+                    "type": "string"
+                },
+                "parent_identity": {
+                    "description": "父级唯一标识，不填默认为顶级菜单",
+                    "type": "string"
+                },
+                "path": {
+                    "description": "路径",
+                    "type": "string"
+                },
+                "sort": {
+                    "description": "排序",
+                    "type": "integer"
+                },
+                "web_icon": {
+                    "description": "网页图标",
+                    "type": "string"
+                }
+            }
+        },
         "service.LoginPasswordRequest": {
             "type": "object",
             "properties": {

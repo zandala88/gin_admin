@@ -49,19 +49,8 @@ func LoginPassword(c *gin.Context) {
 		})
 		return
 	}
-	// 生成 token
-	refreshToken, err := helper.GenerateToken(ub.ID, ub.Identity, ub.Username, ub.RoleIdentity, define.RefreshTokenExpire)
-	if err != nil {
-		helper.Error("[BindJSON ERROR] : %v", err)
-		c.JSON(200, gin.H{
-			"code": -1,
-			"msg":  err.Error(),
-		})
-		return
-	}
 	data := &LoginPasswordReply{
-		Token:        token,
-		RefreshToken: refreshToken,
+		Token: token,
 	}
 	c.JSON(200, gin.H{
 		"code": 200,

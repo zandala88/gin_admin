@@ -16,8 +16,7 @@ type LoginPasswordRequest struct {
 }
 
 type LoginPasswordReply struct {
-	Token        string `json:"token"`         // token
-	RefreshToken string `json:"refresh_token"` // 用于刷新 token 的 token
+	Token string `json:"token"` // token
 }
 
 type RoleMenu struct {
@@ -128,4 +127,21 @@ type DevMenuAddRequest struct {
 	Path           string `json:"path"`            // 路径
 	Sort           int    `json:"sort"`            // 排序
 	Level          int    `json:"level"`           // 菜单等级，{0：目录，1：菜单，2：按钮}
+}
+
+type DevMenuUpdateRequest struct {
+	Identity string `json:"identity"` // 菜单唯一标识，必填
+	DevMenuAddRequest
+}
+
+type DevFuncAddRequest struct {
+	MenuIdentity string `json:"menu_identity"` // 菜单唯一标识
+	Name         string `json:"name"`          // 功能名称
+	Uri          string `json:"uri"`           // 请求地址
+	Sort         int    `json:"sort"`          // 排序
+}
+
+type DevFuncUpdateRequest struct {
+	Identity string `json:"identity"` // 功能唯一标识，必填
+	DevFuncAddRequest
 }
