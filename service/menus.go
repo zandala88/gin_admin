@@ -90,7 +90,6 @@ func roleMenuToMenuReply(roleMenus []*RoleMenu) []*MenuReply {
 			reply = append(reply, &MenuReply{
 				Identity: v.Identity,
 				Name:     v.Name,
-				WebIcon:  v.WebIcon,
 				Sort:     v.Sort,
 				Path:     v.Path,
 				Level:    v.Level,
@@ -109,7 +108,6 @@ func getChildrenMenu(parentId int, parentIdentity string, roleMenus []*RoleMenu)
 			data = append(data, &MenuReply{
 				Identity:       v.Identity,
 				Name:           v.Name,
-				WebIcon:        v.WebIcon,
 				Sort:           v.Sort,
 				Path:           v.Path,
 				Level:          v.Level,
