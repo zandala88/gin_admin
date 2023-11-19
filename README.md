@@ -19,7 +19,7 @@ swag init
 
 
 ## 配置
-1. 创建数据库，将数据库名置为 `up-admin` ,并执行 `.sql` 文件
+1. 创建数据库，将数据库名置为 `up-admin` ,并执行 `./sql/*.sql` 文件
 2. 修改 `define.go` 中的 
 - `RedisAddr` 
 - `RedisUsername`
@@ -34,6 +34,9 @@ swag init
 
 
 
+## 解析
 
-## 功能
-- [x] 登录
+登录接口：生成token，放置Header中用于后续请求
+
+管理员账号 `get` 密码 `123456`
+
