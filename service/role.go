@@ -211,7 +211,7 @@ func SetRoleCreate(c *gin.Context) {
 	}
 	// 授权的菜单
 	rms := make([]*models.RoleMenu, len(menuIds))
-	for i, _ := range rms {
+	for i := range rms {
 		rms[i] = &models.RoleMenu{
 			MenuId: menuIds[i],
 		}
@@ -348,7 +348,7 @@ func SetRoleUpdate(c *gin.Context) {
 	// 组装数据
 	// 授权的菜单
 	rms := make([]*models.RoleMenu, len(menuIds))
-	for i, _ := range rms {
+	for i := range rms {
 		rms[i] = &models.RoleMenu{
 			RoleId: rb.ID,
 			MenuId: menuIds[i],
