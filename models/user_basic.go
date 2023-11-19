@@ -10,9 +10,6 @@ type UserBasic struct {
 	Username     string    `gorm:"column:username;type:varchar(50);" json:"username"`
 	Password     string    `gorm:"column:password;type:varchar(36);" json:"password"`
 	Phone        string    `gorm:"column:phone;type:varchar(20);" json:"phone"`
-	WxUnionId    string    `gorm:"column:wx_union_id;type:varchar(255);" json:"wx_union_id"`
-	WxOpenId     string    `gorm:"column:wx_open_id;type:varchar(255);" json:"wx_open_id"`
-	Avatar       string    `gorm:"column:avatar;type:varchar(255);" json:"avatar"` // 头像
 }
 
 func (table *UserBasic) TableName() string {
