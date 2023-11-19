@@ -45,7 +45,6 @@ func DevMenuAdd(c *gin.Context) {
 		Identity: helper.UUID(),
 		ParentId: parentId,
 		Name:     in.Name,
-		WebIcon:  in.WebIcon,
 		Sort:     in.Sort,
 		Path:     in.Path,
 		Level:    in.Level,
@@ -118,7 +117,6 @@ func DevMenuUpdate(c *gin.Context) {
 	err = models.DB.Model(new(models.MenuBasic)).Where("identity = ?", in.Identity).Updates(map[string]interface{}{
 		"parent_id": parentId,
 		"name":      in.Name,
-		"web_icon":  in.WebIcon,
 		"sort":      in.Sort,
 		"path":      in.Path,
 		"level":     in.Level,
