@@ -24,7 +24,6 @@ type RoleMenu struct {
 	ParentId int    `json:"parent_id"`
 	Identity string `json:"identity"`
 	Name     string `json:"name"`
-	WebIcon  string `json:"web_icon"`
 	Sort     int    `json:"sort"`
 	Path     string `json:"path"`
 	Level    int    `json:"level"`
@@ -44,7 +43,6 @@ type MenuReply struct {
 type UserInfoReply struct {
 	Username string `json:"username"`  // 用户名
 	Phone    string `json:"phone"`     // 手机号
-	Avatar   string `json:"avatar"`    // 头像
 	RoleName string `json:"role_name"` // 角色名称
 }
 
@@ -123,7 +121,6 @@ type SetUserUpdateRequest struct {
 type DevMenuAddRequest struct {
 	ParentIdentity string `json:"parent_identity"` // 父级唯一标识，不填默认为顶级菜单
 	Name           string `json:"name"`            // 菜单名称
-	WebIcon        string `json:"web_icon"`        // 网页图标
 	Path           string `json:"path"`            // 路径
 	Sort           int    `json:"sort"`            // 排序
 	Level          int    `json:"level"`           // 菜单等级，{0：目录，1：菜单，2：按钮}
