@@ -27,7 +27,7 @@ func GetUserBasicByUsernamePassword(username, password string) (*UserBasic, erro
 // GetUserInfo
 // 获取用户详情
 func GetUserInfo(identity string) *gorm.DB {
-	tx := DB.Debug().Model(new(UserBasic)).Select("user_basic.username, user_basic.phone, user_basic.avatar, rb.name role_name").
+	tx := DB.Debug().Model(new(UserBasic)).Select("user_basic.username, user_basic.phone, rb.name role_name").
 		Joins("LEFT JOIN role_basic rb ON rb.identity = user_basic.role_identity").
 		Where("user_basic.identity = ?", identity)
 	return tx
