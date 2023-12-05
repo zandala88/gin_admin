@@ -17,7 +17,7 @@ func (table *RoleMenu) TableName() string {
 func GetRoleMenus(roleIdentity string, isAdmin bool) (*gorm.DB, error) {
 	tx := new(gorm.DB)
 	if isAdmin {
-		tx = DB.Model(new(MenuBasic)).Select("id, parent_id, identity, name, web_icon, sort, path, level").Order("sort ASC")
+		tx = DB.Model(new(MenuBasic)).Select("id, parent_id, identity, name, sort, path, level").Order("sort ASC")
 	} else {
 		roleBasic := new(RoleBasic)
 		err := DB.Model(new(RoleBasic)).Select("id").Where("identity = ?", roleIdentity).Find(roleBasic).Error
