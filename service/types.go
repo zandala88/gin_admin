@@ -33,7 +33,6 @@ type MenuReply struct {
 	Identity       string       `json:"identity"`
 	ParentIdentity string       `json:"parent_identity"`
 	Name           string       `json:"name"`
-	WebIcon        string       `json:"web_icon"`
 	Sort           int          `json:"sort"`
 	Path           string       `json:"path"`
 	Level          int          `json:"level"` // 菜单等级，{0：目录，1：菜单，2：按钮}
