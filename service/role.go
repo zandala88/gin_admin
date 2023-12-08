@@ -7,6 +7,7 @@ import (
 	"gin_admin/models"
 	"github.com/gin-gonic/gin"
 	"gorm.io/gorm"
+	"log"
 	"time"
 )
 
@@ -114,7 +115,7 @@ func SetRoleList(c *gin.Context) {
 // @Tags 鉴权接口-方法
 // @Summary 修改角色的管理员身份
 // @Param AccessToken header string true "AccessToken"
-// @Param password body SetRoleUpdateAdminRequest true "管理员设置"
+// @Param RoleUpdateAdminRequest body SetRoleUpdateAdminRequest true "管理员设置"
 // @Success 200 {string} json "{"code":"200","data":""}"
 // @Router /set/role/update/admin [put]
 func SetRoleUpdateAdmin(c *gin.Context) {
@@ -174,12 +175,13 @@ func SetRoleUpdateAdmin(c *gin.Context) {
 // @Tags 鉴权接口-方法
 // @Summary 角色创建
 // @Param AccessToken header string true "AccessToken"
-// @Param password body SetRoleCreateRequest true "角色信息"
+// @Param RoleCreateRequest body SetRoleCreateRequest true "角色信息"
 // @Success 200 {string} json "{"code":"200","data":""}"
 // @Router /set/role/create [post]
 func SetRoleCreate(c *gin.Context) {
 	in := new(SetRoleCreateRequest)
 	err := c.ShouldBindJSON(in)
+	log.Printf("name = %s,sort = %d", in.Name, in.Sort)
 	if err != nil {
 		helper.Info("[INPUT ERROR] : %v", err)
 		c.JSON(200, gin.H{
@@ -304,7 +306,7 @@ func SetRoleDelete(c *gin.Context) {
 // @Tags 鉴权接口-方法
 // @Summary 角色修改
 // @Param AccessToken header string true "AccessToken"
-// @Param UserUpdate body SetRoleUpdateRequest true "所修改用户信息"
+// @Param RoleUpdateRequest body SetRoleUpdateRequest true "所修改用户信息"
 // @Success 200 {string} json "{"code":"200","data":""}"
 // @Router /set/role/update [put]
 func SetRoleUpdate(c *gin.Context) {

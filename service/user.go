@@ -37,7 +37,7 @@ func UserInfo(c *gin.Context) {
 // @Tags 登录信息认证-方法
 // @Summary 修改密码
 // @Param AccessToken header string true "AccessToken"
-// @Param password body UserPasswordChangeRequest true "新旧密码"
+// @Param PasswordChangeRequest body UserPasswordChangeRequest true "新旧密码"
 // @Success 200 {string} json "{"code":"200","data":""}"
 // @Router /user/password/change [put]
 func UserPasswordChange(c *gin.Context) {
