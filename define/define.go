@@ -5,10 +5,6 @@ import (
 	"time"
 )
 
-// MySQL配置
-// username:password@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local
-var UpAdminDSN = "root:root@tcp(localhost:3306)/up-admin?charset=utf8mb4&parseTime=True&loc=Local"
-
 var (
 	Port           = ":9090"
 	FrameName      = "GinAdmin"
@@ -23,9 +19,6 @@ var (
 
 // Redis 配置
 var (
-	RedisAddr     = "localhost:6379"
-	RedisUsername = ""
-	RedisPassword = ""
 	// RedisRoleAdminPrefix 判断角色是否是超管的前缀
 	RedisRoleAdminPrefix = "ADMIN-"
 	// RedisMenuPrefix 菜单
