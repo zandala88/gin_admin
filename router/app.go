@@ -12,6 +12,7 @@ import (
 func App() *gin.Engine {
 	r := gin.Default()
 	r.Use(middleware.Cors())
+	r.Use(middleware.LoggerToFile())
 
 	// Swagger 配置
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
