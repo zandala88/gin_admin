@@ -26,6 +26,8 @@ go get github.com/satori/go.uuid
 
 go get github.com/go-ini/ini
 go get gopkg.in/ini.v1
+
+go get github.com/sirupsen/logrus
 ```
 
 
@@ -59,4 +61,77 @@ go get gopkg.in/ini.v1
 登录接口：生成token，放置Header中用于后续请求
 
 管理员账号 `get` 密码 `123456`
+
+
+
+
+
+## 项目结构
+
+```
+│  .gitattributes
+│  Dockerfile
+│  go.mod
+│  go.sum
+│  main.go
+│  README.md
+│
+├─.idea
+│      .name
+│      gin_admin.iml
+│      modules.xml
+│      vcs.xml
+│      workspace.xml
+│
+├─conf
+│      config.ini
+│
+├─define
+│      define.go
+│
+├─docs
+│      docs.go
+│      swagger.json
+│      swagger.yaml
+│
+├─helper
+│      helper.go
+│      logger.go
+│
+├─log
+│      up-admin.log
+│
+├─middleware
+│      auth.go
+│      cors.go
+│      logger.go
+│
+├─models
+│      function_basic.go
+│      init.go
+│      menu_basic.go
+│      role_basic.go
+│      role_function.go
+│      role_menu.go
+│      user_basic.go
+│
+├─router
+│      app.go
+│
+├─service
+│      dev.go
+│      func.go
+│      init.go
+│      login.go
+│      menus.go
+│      role.go
+│      types.go
+│      user.go
+│
+├─sql
+│      up-admin.sql
+│
+└─test
+
+```
 
