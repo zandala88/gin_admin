@@ -6,6 +6,7 @@ import (
 	"gin_admin/helper"
 	"gin_admin/models"
 	"github.com/gin-gonic/gin"
+	"log"
 )
 
 // DevMenuAdd
@@ -18,6 +19,7 @@ import (
 func DevMenuAdd(c *gin.Context) {
 	in := new(DevMenuAddRequest)
 	err := c.ShouldBindJSON(in)
+	log.Printf("%+v", in)
 	if err != nil {
 		helper.Error("[BindJSON ERROR] : %v", err)
 		c.JSON(200, gin.H{
