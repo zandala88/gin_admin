@@ -358,7 +358,7 @@ const docTemplate = `{
                     },
                     {
                         "description": "角色信息",
-                        "name": "password",
+                        "name": "RoleCreateRequest",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -499,7 +499,7 @@ const docTemplate = `{
                     },
                     {
                         "description": "所修改用户信息",
-                        "name": "UserUpdate",
+                        "name": "RoleUpdateRequest",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -533,7 +533,7 @@ const docTemplate = `{
                     },
                     {
                         "description": "管理员设置",
-                        "name": "password",
+                        "name": "RoleUpdateAdminRequest",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -735,7 +735,7 @@ const docTemplate = `{
                     },
                     {
                         "description": "新旧密码",
-                        "name": "password",
+                        "name": "PasswordChangeRequest",
                         "in": "body",
                         "required": true,
                         "schema": {
@@ -823,10 +823,6 @@ const docTemplate = `{
                 "sort": {
                     "description": "排序",
                     "type": "integer"
-                },
-                "web_icon": {
-                    "description": "网页图标",
-                    "type": "string"
                 }
             }
         },
@@ -856,10 +852,6 @@ const docTemplate = `{
                 "sort": {
                     "description": "排序",
                     "type": "integer"
-                },
-                "web_icon": {
-                    "description": "网页图标",
-                    "type": "string"
                 }
             }
         },

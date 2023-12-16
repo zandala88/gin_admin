@@ -49,9 +49,6 @@ definitions:
       sort:
         description: 排序
         type: integer
-      web_icon:
-        description: 网页图标
-        type: string
     type: object
   service.DevMenuUpdateRequest:
     properties:
@@ -73,9 +70,6 @@ definitions:
       sort:
         description: 排序
         type: integer
-      web_icon:
-        description: 网页图标
-        type: string
     type: object
   service.LoginPasswordRequest:
     properties:
@@ -383,7 +377,7 @@ paths:
         type: string
       - description: 角色信息
         in: body
-        name: password
+        name: RoleCreateRequest
         required: true
         schema:
           $ref: '#/definitions/service.SetRoleCreateRequest'
@@ -475,7 +469,7 @@ paths:
         type: string
       - description: 所修改用户信息
         in: body
-        name: UserUpdate
+        name: RoleUpdateRequest
         required: true
         schema:
           $ref: '#/definitions/service.SetRoleUpdateRequest'
@@ -497,7 +491,7 @@ paths:
         type: string
       - description: 管理员设置
         in: body
-        name: password
+        name: RoleUpdateAdminRequest
         required: true
         schema:
           $ref: '#/definitions/service.SetRoleUpdateAdminRequest'
@@ -628,7 +622,7 @@ paths:
         type: string
       - description: 新旧密码
         in: body
-        name: password
+        name: PasswordChangeRequest
         required: true
         schema:
           $ref: '#/definitions/service.UserPasswordChangeRequest'
