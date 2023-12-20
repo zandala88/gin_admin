@@ -24,7 +24,7 @@ func GetRoleMenus(roleIdentity string, isAdmin bool) (*gorm.DB, error) {
 		if err != nil {
 			return nil, err
 		}
-		tx = DB.Model(new(RoleMenu)).Select("mb.id, mb.parent_id, mb.identity, mb.name, mb.web_icon, mb.sort, mb.path, mb.level").
+		tx = DB.Model(new(RoleMenu)).Select("mb.id, mb.parent_id, mb.identity, mb.name, mb.sort, mb.path, mb.level").
 			Joins("LEFT JOIN menu_basic mb ON mb.id = role_menu.menu_id").
 			Where("role_menu.role_id = ?", roleBasic.ID).Order("mb.sort ASC")
 	}
