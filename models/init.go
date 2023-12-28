@@ -5,7 +5,6 @@ import (
 	"github.com/redis/go-redis/v9"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
-	"log"
 )
 
 var DB *gorm.DB
@@ -25,7 +24,6 @@ func NewGormDB() {
 
 	addr := user + ":" + password + "@tcp(" + host + ":" + port + ")/" + dbname + "?charset=utf8mb4&parseTime=True&loc=Local"
 
-	log.Println(addr)
 	db, err := gorm.Open(mysql.Open(addr), &gorm.Config{
 		DisableForeignKeyConstraintWhenMigrating: true,
 	})
